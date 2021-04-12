@@ -1,3 +1,8 @@
+• Consumed the IST Department's web data source of RIT using Ajax and then created a web presence of the same using jQuery.
+• Developed the same website with some modifications using ASP.NET Framework and jQuery plugins.
+• Technologies Used : jQuery and plugins, Ajax, ASP.NET Framework, Visual Studio Code
+
+***********************************************************************
 To open the project - double click and open "Project3_FinalExam.sln" in visual studio.
 After the project is loaded run the project.
 
@@ -5,6 +10,7 @@ After the project is loaded run the project.
 I have used jquery backstretch plugin for the layout of my website design.
 I havepulled data from about,people,degrees,minors,employment,research endpoints
 of RESTAPI.
+
 ***********************************************************************
 The about end point data is simply displayed.
 
