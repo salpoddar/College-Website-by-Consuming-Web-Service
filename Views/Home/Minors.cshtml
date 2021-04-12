@@ -1,0 +1,53 @@
+﻿@model Project3_FinalExam.ViewModels.MinorViewModel
+
+
+<h2>@Model.Title</h2>
+
+
+<div id="Minors">
+    <ul>
+
+        @for (var i = 0; i < Model.minors.Count; i++)
+        {
+            <li><a href='@string.Format("#{0}",@Model.minors[i].name)'>@Model.minors[i].name</a></li>
+
+        }
+    </ul>
+
+    @for (var i = 0; i < Model.minors.Count; i++)
+    {
+        <div id=@Model.minors[i].name>
+            <p>Title : @Model.minors[i].title</p>
+            <p>Description : @Model.minors[i].description</p>
+            <ul>
+                Courses Required:
+                @foreach(var c in Model.minors[i].courses)
+                {
+                    <li>@c</li>
+                }
+            </ul>
+            <p> Note : @Model.minors[i].note</p>
+        </div>
+
+    }
+</div>
+
+<div class=" row">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+@*Get jQuery and jQueryUI Scripts from wwwroot*@
+@section Scripts {
+    <script src="~/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="~/jqueryui/themes/ui-darkness/jquery-ui.min.css">
+    <script src="~/jqueryui/jquery-ui.js"></script>
+    <script>        
+        $(function () {
+            $('#Minors').tabs({
+                active: 0,
+                collapsible: true
+            });
+        });
+    </script>
+
+}

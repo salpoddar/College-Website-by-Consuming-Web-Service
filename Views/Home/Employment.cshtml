@@ -1,0 +1,62 @@
+﻿@model Project3_FinalExam.ViewModels.EmploymentViewModel
+
+
+<h2>@Model.Title1</h2>
+<div id="jsGrid"></div>
+
+<div class=" row">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+
+<h2>@Model.Title2</h2>
+<div id="jsGrid2"></div>
+
+@*Get jQuery and jQueryUI Scripts from wwwroot*@
+@section Scripts {
+    <script src="~/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="~/jqueryui/themes/ui-lightness/jquery-ui.min.css">
+    <script src="~/jqueryui/jquery-ui.js"></script>
+    <script src="~/jsgrid/jsgrid.min.js"></script>
+    <script src="~/jsgrid/jsgrid.js"></script>
+    <script>
+        $("#jsGrid").jsGrid({
+            width: "400%",
+            height: "1000px",
+
+            inserting: false,
+            editing: false,
+            sorting: true,
+            paging: true,
+
+            data:  @Html.Raw(Json.Serialize(Model.coop)),
+
+            fields: [
+                { name: "employer", type: "text", width: 150, validate: "required" },
+                { name: "degree", type: "text", width: 100 },
+                { name: "city", type: "text", width:100 },
+            ]
+        });
+        $("#jsGrid2").jsGrid({
+            width: "400%",
+            height: "1200px",
+
+            inserting: false,
+            editing: false,
+            sorting: true,
+            paging: true,
+
+            data:  @Html.Raw(Json.Serialize(Model.fulltime)),
+
+            fields: [
+                { name: "employer", type: "text", width: 150, validate: "required" },
+                { name: "degree", type: "text", width: 100 },
+                { name: "city", type: "text", width: 100 },
+                { name: "title", type: "text", width: 150 },
+                { name: "startDate", type: "text", width: 50 }
+            ]
+        });
+    </script>
+
+
+}

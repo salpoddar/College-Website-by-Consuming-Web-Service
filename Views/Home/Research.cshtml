@@ -1,0 +1,62 @@
+﻿@model Project3_FinalExam.ViewModels.ResearchViewModel
+
+
+<h2>@Model.Title1</h2>
+
+<ul id="research">
+    @foreach (var i in @Model.byInterest)
+    {
+        <li>
+            <div>@i.areaName</div>
+            <ul>
+                @foreach (var c in i.citations)
+                {
+                    <li><div>@c</div></li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+
+<div class=" row">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+
+<h2>@Model.Title2</h2>
+
+<ul id="research2">
+    @foreach (var i in @Model.byFaculty)
+    {
+        <li>
+            <div>@i.facultyName</div>
+            <ul>
+                @foreach (var c in i.citations)
+                {
+                    <li><div>@c</div></li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+@*Get jQuery and jQueryUI Scripts from wwwroot*@
+@section Scripts {
+    <script src="~/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="~/jqueryui/themes/ui-lightness/jquery-ui.min.css">
+    <script src="~/jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            $('#research').menu();
+            $('#research2').menu();
+        });
+    </script>
+    <style>
+        .ui-menu {
+            width: 500px;
+        }
+    </style>
+
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "libraries": [
+    {
+      "library": "bootstrap@4.5.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/jquery/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/jqueryui/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-backstretch@2.1.18",
+      "destination": "wwwroot/jquery-backstretch/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jsgrid@1.5.3",
+      "destination": "wwwroot/jsgrid/"
+    }
+  ]
+}

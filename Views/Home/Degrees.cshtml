@@ -1,0 +1,115 @@
+﻿@model Project3_FinalExam.ViewModels.DegreeViewModel
+
+
+<h2>@Model.Title</h2>
+
+
+
+<div id="myUnderDegrees"></div>
+
+
+
+@foreach (var under in Model.UnderGrads)
+{
+    <h3 id=@String.Concat("myHdng", under.degreeName)><b>@under.degreeName.ToUpper() - @Model.Title1</b></h3>
+
+    <div id=@String.Concat("myDiv", under.degreeName)>
+        
+        <p>Title : @under.title</p>
+        <p>Decription : @under.description</p>
+        <ul>
+            Fields Included:
+            @foreach (var conc in @under.concentrations)
+            {
+                <li>@conc</li>
+
+            }
+        </ul>
+    </div>
+}
+
+
+<div id="myGradDegrees"></div>
+
+
+@foreach (var g in Model.grads)
+{
+    <h3 id=@String.Concat("myHdng", g.degreeName)><b>@g.degreeName.ToUpper() - @Model.Title2</b></h3>
+
+    <div id=@String.Concat("myDiv", g.degreeName)>
+        @if (g.title != null)
+        {
+            <p>Title : @g.title</p>
+        }
+        @if (g.description != null)
+        {
+            <p>Description : @g.description</p>
+        }
+
+        @if (@g.concentrations != null)
+        {
+            <ul>
+                Fields Included:
+                @foreach (var conc in @g.concentrations)
+                {
+                    <li>@conc</li>
+
+                }
+            </ul>
+
+        }
+        else
+        {
+            <ul>
+                Certifications Field:
+                @foreach (var conc in @g.availableCertificates)
+                {
+                    <li>@conc</li>
+
+                }
+            </ul>
+        }
+
+    </div>
+}
+<div class=" row">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+@*Get jQuery and jQueryUI Scripts from wwwroot*@
+@section Scripts {
+    <script src="~/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="~/jqueryui/themes/ui-darkness/jquery-ui.min.css">
+    <script src="~/jqueryui/jquery-ui.js"></script>
+    <script>
+        // Create Accordion
+        let headings = document.querySelectorAll("h3");
+        let divs = document.querySelectorAll("[id^='myDiv']");
+        var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+        for (var i = 0; i < headings.length; i++) {
+            $("#myUnderDegrees").append($("#" + headings[i].id));
+            $("#myUnderDegrees").append($("#" + divs[i].id));
+        }
+
+        $('#myUnderDegrees').accordion({
+            collapsible: true,
+            active: false,
+            heightStyle: "content"
+        });
+        for (var i = 0; i < headings.length; i++) {
+            $("#myGradDegrees").append($("#" + headings[i].id));
+            $("#myGradDegrees").append($("#" + divs[i].id));
+        }
+
+        $('#myGradDegrees').accordion({
+            icons: icons,
+            collapsible: true,
+            active: false,
+            heightStyle: "content"
+        });
+    </script>
+
+}
