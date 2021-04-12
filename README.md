@@ -1,6 +1,8 @@
-• Consumed the IST Department's web data source of RIT using Ajax and then created a web presence of the same using jQuery.
-• Developed the same website with some modifications using ASP.NET Framework and jQuery plugins.
-• Technologies Used : jQuery and plugins, Ajax, ASP.NET Framework, Visual Studio Code
+Consumed the IST Department's web data source of RIT using Ajax and then created a web presence of the same 
+using jQuery.Developed the same website with some modifications using ASP.NET Framework and jQuery plugins.
+
+***********************************************************************
+Technologies Used : jQuery and plugins, Ajax, ASP.NET Framework, Visual Studio Code
 
 ***********************************************************************
 To open the project - double click and open "Project3_FinalExam.sln" in visual studio.
